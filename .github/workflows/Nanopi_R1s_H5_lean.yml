@@ -15,8 +15,8 @@ jobs:
         sudo cp repo/repo /usr/bin/
     - name: rsync h5 code
       run: |
-        mkdir /friendlywrt-h5
-        cd /friendlywrt-h5
+        mkdir friendlywrt-h5
+        cd friendlywrt-h5
         repo init -u https://github.com/friendlyarm/friendlywrt_manifests -b master-v18.06.1 -m h5.xml --repo-url=https://github.com/friendlyarm/repo  --no-clone-bundle
         repo sync -c  --no-clone-bundle
     - name: install build base
@@ -24,5 +24,5 @@ jobs:
         wget -O - https://raw.githubusercontent.com/friendlyarm/build-env-on-ubuntu-bionic/master/install.sh | bash
     - name: building
       run: |
-        cd /friendlywrt-h5
+        cd friendlywrt-h5
         ./build.sh nanopi_r1s.mk
