@@ -47,8 +47,8 @@ jobs:
         
     - name: Update feeds
       run: |
-        ./friendlywrt-h5/scripts/feeds update -a
-        ./friendlywrt-h5/scripts/feeds install -a
+        ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds update -a
+        ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds install -a
         
     - name: building
       run: |
