@@ -47,6 +47,8 @@ jobs:
         
     - name: Update feeds
       run: |
+        pwd
+        id
         ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds update -a
         ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds install -a
         
