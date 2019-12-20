@@ -51,8 +51,8 @@ jobs:
         id
         ls
         ls ./friendlywrt-h5/
-        ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds update -a
-        ./friendlywrt-h5/friendlywrt/friendlywrt-h5/scripts/feeds install -a
+        ./friendlywrt-h5/friendlywrt/scripts/feeds update -a
+        ./friendlywrt-h5/friendlywrt/scripts/feeds update -a
         
     - name: building
       run: |
