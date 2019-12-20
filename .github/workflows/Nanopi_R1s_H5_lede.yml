@@ -13,8 +13,17 @@ jobs:
       run: |
         git clone https://github.com/friendlyarm/repo
         sudo cp repo/repo /usr/bin/
+        echo "环境检查===="
         pwd
+        echo "===="
         du -sh
+        echo "===="
+        df -h
+        echo "===="
+        free -h
+        echo "===="
+        cat /proc/cpuinfo | grep CPU
+        echo "====bye"
         
     - name: rsync h5 code
       run: |
@@ -59,6 +68,8 @@ jobs:
         cd friendlywrt-h5/
         rm -rf .config
         wget https://raw.githubusercontent.com/MSG-maniac/Nanopi_R1s_H5_lean/master/.config
+        sed -i 's/make -j$(nproc) V=s/make -j1 V=s/g' scripts/mk-friendlywrt.sh
+        cat scripts/mk-friendlywrt.sh
         
     - name: building
       run: |
