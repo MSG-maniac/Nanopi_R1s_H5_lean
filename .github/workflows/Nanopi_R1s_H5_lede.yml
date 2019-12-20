@@ -50,11 +50,23 @@ jobs:
         pwd
         id
         ls
-        ls ./friendlywrt-h5/
-        ./friendlywrt-h5/friendlywrt/scripts/feeds update -a
-        ./friendlywrt-h5/friendlywrt/scripts/feeds install -a
+        cd friendlywrt-h5/friendlywrt/
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+        
+    - name: make config
+      run: |
+        cd friendlywrt-h5/
+        rm -rf .config
+        wget https://raw.githubusercontent.com/MSG-maniac/Nanopi_R1s_H5_lean/master/.config
         
     - name: building
       run: |
         cd friendlywrt-h5
         ./build.sh nanopi_r1s.mk
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: lede_NanoPi_R1s_h5
+        path: ./friendlywrt-h5/out
